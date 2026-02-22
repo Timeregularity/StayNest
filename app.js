@@ -6,11 +6,16 @@ const path=require("path");
 const ejsMate=require("ejs-mate");
 const ExpressError = require("./utils/expressErrors.js");
 const {listingSchema,reviewSchema}=require("./validation.js");
-const listing=require("./routes/listing.js");
-const review=require("./routes/reviews.js");
+const listingRouter=require("./routes/listing.js");
+const reviewRouter=require("./routes/reviews.js");
+const userRouter=require("./routes/user.js");
 const methodOverride=require("method-override");
 const session=require("express-session");
 const flash=require("connect-flash");
+const LocalStrategy=require("passport-local");
+const User=require("./DBModels/user.js");
+const passport=require("passport");
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -39,6 +44,16 @@ async function main() {
 
   app.use(session(sessionOptions));
   app.use(flash());
+
+  app.use(passport.initialize());
+  app.use(passport.session());
+  passport.use(new LocalStrategy(User.authenticate()));
+  
+
+// use static serialize and deserialize of model for passport session support
+  passport.serializeUser(User.serializeUser());
+  passport.deserializeUser(User.deserializeUser());
+  
   app.use((req,res,next)=>
   {
     res.locals.success=req.flash("success");
@@ -52,15 +67,26 @@ async function main() {
     res.render("listings/index",{allListing});
  });
   
-
+ app.get("/demouser",async (req,res)=>
+{
+  let fakeUser=new User(
+    {
+      email:"abc@gmail.com",
+      username:"Slam8m"
+    });
+  let registeredUser=await User.register(fakeUser,"helloworld");
+  res.send(registeredUser);
+})
 
 
 
  //router Listing
- app.use("/listings",listing);
+ app.use("/listings",listingRouter);
  
  //router review
- app.use("/listings/:id/reviews",review);
+ app.use("/listings/:id/reviews",reviewRouter);
+ //user router
+ app.use("/",userRouter);
 
 app.use((req,res,next)=>{
   next(new ExpressError(404,"Page Not Found!"));

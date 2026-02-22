@@ -1,0 +1,40 @@
+<% layout("layouts/boilerplate") %>
+<body>
+    <% if(failure && failure.length){%>
+        <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert" >
+            <%= failure[0] %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+    <%}%>
+    
+    <div class="container mt-5 offset-2">
+        <div class="card shadow-sm p-4" style="max-width: 600px;">
+          <h2 class="mb-4">Login To Nivasa</h2>
+          <form action="/signUp" method="POST" novalidate class="needs-validation" >  
+        
+            <div class="mb-3 mt-3">
+                <label for="username" >Username: </label><br>
+            <input name="username" type="text" class="form-control" required>
+            <div class="invalid-feedback">Please enter a valid Username.</div><br><br>
+            </div>
+            <div class="mb-3">
+                <label for="email" >Email: </label><br>
+                <input name="email" class="form-control " type="email" required></input>
+                <div class="invalid-feedback">Please enter a valid email.</div> <br><br>
+            </div>
+           <div class="mb-3">
+            <label for="password" >Password: </label><br>
+            <input name="password" type="password" class="form-control"  required>
+            <div class="invalid-feedback">Please enter a valid link.</div><br><br>
+           </div>
+            
+            
+            <button type="submit" class="btn btn-success">Sign Up</button>
+        </form>
+        </div>
+      </div>
+
+
+  
+
+</body>
