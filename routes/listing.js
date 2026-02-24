@@ -5,6 +5,7 @@ const {listingSchema}=require("../validation.js");
 const Listing=require("../DBModels/listing.js");
 const ExpressError = require("../utils/expressErrors.js");
 const flash=require("connect-flash");
+const {isLoggedIn}=require("../middlewares.js");
 
 const validateSchema=(req,res,next)=>
   {
@@ -26,20 +27,24 @@ router.get("/", wrapAsync(async (req,res)=>{
     res.render("listings/listing",{allListing});
  }));
  
- router.get("/new",(req,res)=>{
+ router.get("/new",isLoggedIn,(req,res)=>{
     res.render("listings/new");
  });
  
- router.post("/", validateSchema, wrapAsync(async (req,res)=>{
-    const newListing = new Listing(req.body.listing);
-    await newListing.save();
+ router.post("/",isLoggedIn, validateSchema, wrapAsync(async (req,res)=>{
+      const newListing = new Listing(req.body.listing);
+      // attach the currently logged-in user as the owner
+      if(req.user && req.user._id){
+         newListing.owner = req.user._id;
+      }
+      await newListing.save();
     req.flash("success","New listing is created");
     res.redirect("/listings");
  }));
  
  router.get("/:id", wrapAsync(async(req,res)=>{
     let {id}=req.params;
-    const listing = await Listing.findById(id).populate("reviews");
+    const listing = await Listing.findById(id).populate("reviews").populate("owner");
     if(!listing) {
       req.flash("failure","Listing Does not exist");
       return res.redirect("/listings");  
@@ -50,20 +55,20 @@ router.get("/", wrapAsync(async (req,res)=>{
     
  }));
  
- router.get("/:id/edit", wrapAsync(async(req,res)=>{
+ router.get("/:id/edit",isLoggedIn, wrapAsync(async(req,res)=>{
     let {id}=req.params;
     const listing = await Listing.findById(id);
     res.render("listings/edit",{listing});
  }));
  
- router.put("/:id", validateSchema, wrapAsync(async(req,res)=>{
+ router.put("/:id",isLoggedIn, validateSchema, wrapAsync(async(req,res)=>{
     let {id}=req.params;
     await Listing.findByIdAndUpdate(id,{...req.body.listing});
     req.flash("success","New listing is updated");
     res.redirect(`/listings/${id}`);
  }));
  
- router.delete("/:id", wrapAsync(async(req,res)=>{
+ router.delete("/:id",isLoggedIn, wrapAsync(async(req,res)=>{
     let {id}=req.params;
     await Listing.findByIdAndDelete(id);
     req.flash("success","listing is deleted!");

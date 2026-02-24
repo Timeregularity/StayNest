@@ -17,6 +17,32 @@
               </li>
               
             </ul>
+            
+             <div class="user-log ms-auto">
+              <div class="logoutin">
+                <ul class="log">
+                  <% if(!currentUser){%>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Signup</a></li>
+                  <%}else {%>
+                   <li><a href="/logout">LogOut</a></li>
+                  <%}%>
+                  
+                </ul>
+              </div>
+              
+              <div class="profile">
+                <a href="/profile">
+                  <div >
+                    <i class="fa-regular fa-user fa-2x"></i>
+                  </div>
+                </a>
+              </div>
+             </div>
+             
+             
+         
+            
           </div>
         </div>
       </nav>

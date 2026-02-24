@@ -32,15 +32,16 @@ async function main() {
   }
   main();
 
-  const sessionOptions=({
-
+  const sessionOptions={
     secret:"23B0101088",
     resave:false,
     saveUninitialized:true,
-    expires:Date.now()+7*24*60*60*1000,
-    maxDate:7*24*60*60*1000,
-    httpOnly:true
-  });
+    cookie:{
+      expires:Date.now()+7*24*60*60*1000,
+      maxAge:7*24*60*60*1000,
+      httpOnly:true
+    }
+  };
 
   app.use(session(sessionOptions));
   app.use(flash());
@@ -50,22 +51,21 @@ async function main() {
   passport.use(new LocalStrategy(User.authenticate()));
   
 
+
 // use static serialize and deserialize of model for passport session support
   passport.serializeUser(User.serializeUser());
   passport.deserializeUser(User.deserializeUser());
   
+ 
   app.use((req,res,next)=>
   {
     res.locals.success=req.flash("success");
     res.locals.failure=req.flash("failure");
+    res.locals.currentUser = req.user;
     next();
   });
 
-  //index route
-  app.get("/", async (req,res)=>{
-    const allListing = await Listing.find({});
-    res.render("listings/index",{allListing});
- });
+ 
   
  app.get("/demouser",async (req,res)=>
 {
@@ -87,6 +87,13 @@ async function main() {
  app.use("/listings/:id/reviews",reviewRouter);
  //user router
  app.use("/",userRouter);
+ //current user
+ //index route
+ app.get("/", async (req,res)=>{
+   const allListing = await Listing.find({});
+   res.render("listings/index",{allListing});
+ });
+ 
 
 app.use((req,res,next)=>{
   next(new ExpressError(404,"Page Not Found!"));
@@ -98,7 +105,6 @@ app.use((err,req,res,next)=>{
   
   res.status(statusCode).render("listings/error.ejs",{message});
 });
-
 
 app.listen(1000,(req,res)=>
 {

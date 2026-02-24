@@ -1,229 +1,279 @@
-const sampleListing=[
+const sampleListings = [
+
     {
-      title: "Stone Villa",
-      description: "Green villa next to Mumbai Airport",
-      img: "https://images.unsplash.com/photo-1713892086528-1149a142e386?w=1000&auto=format&fit=crop&q=60",
-      price: 3600,
-      location: "Bandra, Mumbai",
-      country: "India"
-    },
-    {
-      title: "Ocean Pearl Resort",
-      description: "Luxury beachfront resort with sea view",
-      img: "https://images.unsplash.com/photo-1501117716987-c8e2a317e7c6?w=1000&auto=format&fit=crop&q=60",
+      title: "Green Valley Mountain Resort",
+      description: "Luxury mountain resort surrounded by lush green hills.",
+      img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&h=700&fit=crop",
       price: 7200,
-      location: "Calangute, Goa",
-      country: "India"
-    },
-    {
-      title: "Royal Heritage Stay",
-      description: "Palace-style luxury hotel near forts",
-      img: "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=1000&auto=format&fit=crop&q=60",
-      price: 8500,
-      location: "Jaipur, Rajasthan",
-      country: "India"
-    },
-    {
-      title: "Hillside Retreat",
-      description: "Peaceful mountain stay with valley view",
-      img: "https://images.unsplash.com/photo-1505691723518-36a5ac3b2c33?w=1000&auto=format&fit=crop&q=60",
-      price: 4200,
       location: "Manali, Himachal Pradesh",
-      country: "India"
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Urban Comfort Inn",
-      description: "Modern hotel for business travelers",
-      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1000&auto=format&fit=crop&q=60",
-      price: 5100,
-      location: "Bengaluru, Karnataka",
-      country: "India"
-    },
-    {
-      title: "Lake View Residency",
-      description: "Lakeside hotel with beautiful sunsets",
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1000&auto=format&fit=crop&q=60",
-      price: 4600,
-      location: "Udaipur, Rajasthan",
-      country: "India"
-    },
-    {
-      title: "Green Nest Eco Stay",
-      description: "Eco-friendly resort surrounded by forests",
-      img: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1000&auto=format&fit=crop&q=60",
-      price: 3300,
-      location: "Wayanad, Kerala",
-      country: "India"
-    },
-    {
-      title: "City Lights Hotel",
-      description: "Premium hotel with skyline views",
-      img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1000&auto=format&fit=crop&q=60",
+      title: "Rainforest Eco Hotel",
+      description: "Modern eco hotel surrounded by dense rainforest.",
+      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1000&h=700&fit=crop",
       price: 6800,
-      location: "Lower Parel, Mumbai",
-      country: "India"
+      location: "Wayanad, Kerala",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Snow Peak Lodge",
-      description: "Cozy lodge near snow mountains",
-      img: "https://images.unsplash.com/photo-1472220625704-91e1462799b2?w=1000&auto=format&fit=crop&q=60",
-      price: 4900,
-      location: "Gulmarg, Kashmir",
-      country: "India"
+      title: "Hilltop Forest Resort",
+      description: "Premium hilltop resort with forest valley views.",
+      img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1000&h=700&fit=crop",
+      price: 7500,
+      location: "Coorg, Karnataka",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Desert Rose Resort",
-      description: "Luxury desert stay with cultural nights",
-      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&auto=format&fit=crop&q=60",
-      price: 7800,
-      location: "Jaisalmer, Rajasthan",
-      country: "India"
-    },
-  
-    {
-      title: "Riverfront Haven",
-      description: "Calm riverside resort with nature vibes",
-      img: "https://images.unsplash.com/photo-1468824357306-a439d58ccb1c?w=1000&auto=format&fit=crop&q=60",
-      price: 3900,
-      location: "Rishikesh, Uttarakhand",
-      country: "India"
+      title: "Lakeview Green Resort",
+      description: "Resort facing a scenic lake with mountain backdrop.",
+      img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1000&h=700&fit=crop",
+      price: 8100,
+      location: "Nainital, Uttarakhand",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Sunrise Suites",
-      description: "Comfortable stay with morning city views",
-      img: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=1000&auto=format&fit=crop&q=60",
-      price: 4400,
-      location: "Indore, Madhya Pradesh",
-      country: "India"
-    },
-    {
-      title: "Palm Breeze Resort",
-      description: "Tropical resort surrounded by palm trees",
-      img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1000&auto=format&fit=crop&q=60",
-      price: 6100,
-      location: "Kovalam, Kerala",
-      country: "India"
-    },
-    {
-      title: "Metro Stay Hub",
-      description: "Budget-friendly hotel near metro station",
-      img: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1000&auto=format&fit=crop&q=60",
-      price: 2800,
-      location: "Dwarka, New Delhi",
-      country: "India"
-    },
-    {
-      title: "Hill Crest Villa",
-      description: "Private villa with hilltop views",
-      img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1000&auto=format&fit=crop&q=60",
-      price: 5600,
-      location: "Lonavala, Maharashtra",
-      country: "India"
-    },
-    {
-      title: "Forest Whisper Resort",
-      description: "Stay amidst dense forest and wildlife",
-      img: "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?w=1000&auto=format&fit=crop&q=60",
-      price: 4700,
-      location: "Jim Corbett, Uttarakhand",
-      country: "India"
-    },
-    {
-      title: "Golden Leaf Residency",
-      description: "Elegant hotel for family stays",
-      img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1000&auto=format&fit=crop&q=60",
-      price: 5200,
-      location: "Ahmedabad, Gujarat",
-      country: "India"
-    },
-    {
-      title: "Blue Horizon Hotel",
-      description: "Sea-facing rooms with modern interiors",
-      img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&auto=format&fit=crop&q=60",
+      title: "Emerald Hills Luxury Hotel",
+      description: "Elegant hotel nestled in lush green hills.",
+      img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&h=700&fit=crop",
       price: 6900,
-      location: "Visakhapatnam, Andhra Pradesh",
-      country: "India"
-    },
-    {
-      title: "Vintage Palace Stay",
-      description: "Heritage hotel with royal architecture",
-      img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&auto=format&fit=crop&q=60",
-      price: 8800,
-      location: "Mysuru, Karnataka",
-      country: "India"
+      location: "Ooty, Tamil Nadu",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
     },
   
     {
-      title: "Hill Breeze Inn",
-      description: "Budget hill stay with fresh air",
-      img: "https://images.unsplash.com/photo-1519821172141-b5d8d1c2d8f5?w=1000&auto=format&fit=crop&q=60",
-      price: 3000,
-      location: "Ooty, Tamil Nadu",
-      country: "India"
+      title: "Tea Garden View Resort",
+      description: "Resort overlooking beautiful green tea plantations.",
+      img: "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=1000&h=700&fit=crop",
+      price: 7300,
+      location: "Munnar, Kerala",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Silver Sands Resort",
-      description: "Luxury beach resort with private access",
-      img: "https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1000&auto=format&fit=crop&q=60",
-      price: 9100,
-      location: "Havelock Island, Andaman",
-      country: "India"
-    },
-    {
-      title: "City Nest Lodge",
-      description: "Affordable stay for solo travelers",
-      img: "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=1000&auto=format&fit=crop&q=60",
-      price: 2600,
-      location: "Pune, Maharashtra",
-      country: "India"
-    },
-    {
-      title: "Amber Fort View Hotel",
-      description: "Scenic stay overlooking historic fort",
-      img: "https://images.unsplash.com/photo-1596436889106-be35e843f974?w=1000&auto=format&fit=crop&q=60",
-      price: 7400,
-      location: "Jaipur, Rajasthan",
-      country: "India"
-    },
-    {
-      title: "Tranquil Bay Resort",
-      description: "Calm bay-side resort for couples",
-      img: "https://images.unsplash.com/photo-1502920514313-52581002a659?w=1000&auto=format&fit=crop&q=60",
-      price: 6300,
-      location: "Alleppey, Kerala",
-      country: "India"
-    },
-    {
-      title: "Royal Orchid Suites",
-      description: "Premium suites with luxury amenities",
-      img: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1000&auto=format&fit=crop&q=60",
-      price: 8200,
-      location: "Hyderabad, Telangana",
-      country: "India"
-    },
-    {
-      title: "Mountain Mist Hotel",
-      description: "Hotel surrounded by misty hills",
-      img: "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&auto=format&fit=crop&q=60",
-      price: 5400,
-      location: "Shillong, Meghalaya",
-      country: "India"
-    },
-    {
-      title: "Sunset Boulevard Stay",
-      description: "Stylish hotel with sunset rooftop view",
-      img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&auto=format&fit=crop&q=60",
+      title: "Jungle Retreat Hotel",
+      description: "Hotel surrounded by tropical jungle greenery.",
+      img: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1000&h=700&fit=crop",
       price: 6600,
-      location: "Chandigarh",
-      country: "India"
+      location: "Jim Corbett, Uttarakhand",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Lotus Grand Residency",
-      description: "Spacious rooms with premium comfort",
-      img: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=1000&auto=format&fit=crop&q=60",
-      price: 5800,
-      location: "Bhopal, Madhya Pradesh",
-      country: "India"
+      title: "Valley Breeze Nature Resort",
+      description: "Scenic valley resort with panoramic green views.",
+      img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&h=700&fit=crop",
+      price: 7800,
+      location: "Shillong, Meghalaya",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Green Canopy Boutique Hotel",
+      description: "Boutique hotel surrounded by tall trees and gardens.",
+      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1000&h=700&fit=crop",
+      price: 6400,
+      location: "Chikmagalur, Karnataka",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Misty Hillside Resort",
+      description: "Luxury hillside hotel covered in green misty mountains.",
+      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&h=700&fit=crop",
+      price: 8200,
+      location: "Darjeeling, West Bengal",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
     }
-  ]
-  module.exports={data:sampleListing};
+    ,
+    {
+      title: "Forest Valley Luxury Resort",
+      description: "Luxury resort surrounded by dense forest and valley views.",
+      img: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1000&h=700&fit=crop",
+      price: 7600,
+      location: "Kabini, Karnataka",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Green Horizon Mountain Hotel",
+      description: "Mountain-facing hotel with lush green landscapes.",
+      img: "https://images.unsplash.com/photo-1576675784201-0e142b423952?w=1000&h=700&fit=crop",
+      price: 7100,
+      location: "Dharamshala, Himachal Pradesh",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Riverside Forest Resort",
+      description: "Hotel located beside a flowing river and forest.",
+      img: "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?w=1000&h=700&fit=crop",
+      price: 6900,
+      location: "Rishikesh, Uttarakhand",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Hillcrest Green Stay",
+      description: "Comfortable stay on green hilltops with scenic views.",
+      img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1000&h=700&fit=crop",
+      price: 6200,
+      location: "Kodaikanal, Tamil Nadu",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Nature Crown Boutique Resort",
+      description: "Elegant boutique resort surrounded by tropical greenery.",
+      img: "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?w=1000&h=700&fit=crop",
+      price: 8300,
+      location: "Goa, India",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Evergreen Hills Hotel",
+      description: "Hotel overlooking evergreen hills and valleys.",
+      img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&h=700&fit=crop",
+      price: 7400,
+      location: "Gangtok, Sikkim",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Tea Estate Luxury Resort",
+      description: "Resort surrounded by green tea plantations.",
+      img: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1000&h=700&fit=crop",
+      price: 7900,
+      location: "Munnar, Kerala",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Woodland Escape Hotel",
+      description: "Peaceful woodland hotel with scenic nature views.",
+      img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&h=700&fit=crop",
+      price: 6500,
+      location: "Pachmarhi, Madhya Pradesh",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Valley Greens Premium Resort",
+      description: "Premium valley-facing resort surrounded by greenery.",
+      img: "https://images.unsplash.com/photo-1571508601891-ca5e7a713859?w=1000&h=700&fit=crop",
+      price: 8600,
+      location: "Shillong, Meghalaya",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Mountain Serenity Lodge",
+      description: "Green mountain lodge with peaceful atmosphere.",
+      img: "https://images.unsplash.com/photo-1584132915807-fd1f5fbc078f?w=1000&h=700&fit=crop",
+      price: 7200,
+      location: "Tirthan Valley, Himachal Pradesh",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Green Cliffside Resort",
+      description: "Cliffside hotel with panoramic green valley views.",
+      img: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1000&h=700&fit=crop",
+      price: 8800,
+      location: "Lonavala, Maharashtra",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Jungle View Luxury Hotel",
+      description: "Hotel with balconies overlooking jungle landscapes.",
+      img: "https://images.unsplash.com/photo-1586611292717-f828b167408c?w=1000&h=700&fit=crop",
+      price: 7600,
+      location: "Bandipur, Karnataka",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "River Mist Nature Resort",
+      description: "Riverside resort surrounded by green hills.",
+      img: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=1000&h=700&fit=crop",
+      price: 6900,
+      location: "Almora, Uttarakhand",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Green Terrace Hill Hotel",
+      description: "Terrace hotel with green mountain backdrops.",
+      img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&h=700&fit=crop",
+      price: 7100,
+      location: "Mussoorie, Uttarakhand",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Nature Bliss Hillside Resort",
+      description: "Hillside resort surrounded by greenery and mist.",
+      img: "https://images.unsplash.com/photo-1582719478173-1a9f6b2b1b96?w=1000&h=700&fit=crop",
+      price: 8400,
+      location: "Saputara, Gujarat",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Green Meadow Boutique Hotel",
+      description: "Boutique hotel located in lush green meadows.",
+      img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&h=700&fit=crop",
+      price: 6500,
+      location: "Auli, Uttarakhand",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Mountain Breeze Eco Resort",
+      description: "Eco-friendly resort surrounded by green mountains.",
+      img: "https://images.unsplash.com/photo-1584132915807-fd1f5fbc078f?w=1000&h=700&fit=crop",
+      price: 7300,
+      location: "Kasauli, Himachal Pradesh",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Forest Ridge Premium Stay",
+      description: "Premium forest stay with scenic nature views.",
+      img: "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?w=1000&h=700&fit=crop",
+      price: 8100,
+      location: "Chikmagalur, Karnataka",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Green Haven Valley Resort",
+      description: "Valley-facing resort surrounded by lush greenery.",
+      img: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1000&h=700&fit=crop",
+      price: 7800,
+      location: "Valparai, Tamil Nadu",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    },
+    {
+      title: "Woodland Panorama Hotel",
+      description: "Hotel offering panoramic forest and hill views.",
+      img: "https://images.unsplash.com/photo-1586611292717-f828b167408c?w=1000&h=700&fit=crop",
+      price: 7200,
+      location: "Dandeli, Karnataka",
+      country: "India",
+      owner: "699dbdec0d8fb75d1a4547f6"
+    }
+  ];
+  
+  
+
+module.exports = { data:sampleListings };

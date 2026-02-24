@@ -67,4 +67,41 @@ a{
     justify-content: center;
     align-items: center;
    }
+   .profile{
+    
+    border-radius: 4rem;
+    height: 3rem;
+    width: 3rem;
+    background-color: black;
+    display: flex;
+justify-content:center ;
+align-items: center;
+   }
+ .fa-user{
 
+color: white;
+
+ }
+ .user-log
+ {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+ }
+ .logoutin
+ {   position:relative;
+    top: 0.5rem;
+ }
+ .log{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    
+    align-items: center;
+     list-style: none;
+     color: rgb(0, 0, 0) ;
+     font-weight: 500;
+     font-size: 1.25rem;
+ }
