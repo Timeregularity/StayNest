@@ -8,7 +8,7 @@
     <div class="card shadow-sm p-4" style="max-width: 600px;">
       <h2 class="mb-4">Edit Listing</h2>
 
-      <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" novalidate class="needs-validation">
+      <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
 
         <div class="mb-3 mt-3">
           <label for="title">Title:</label>
@@ -32,16 +32,20 @@
           ><%= listing.description %></textarea>
           <div class="invalid-feedback">Please enter a description.</div><br><br>
         </div>
-
+        <div class="preview_img">
+        Original Listing Image:<br>
+          <img src="<%= original_url%>">
+        </div>
+        <br>
         <div class="mb-3">
-          <label for="img">Image URL:</label>
-          <input required
+          <label for="img">Upload New Image:</label>
+          <input 
             name="listing[img]"
-            type="text"
+            type="file"
             class="form-control"
-            value="<%= listing.img %>"
+            value="<%= (listing.img && (typeof listing.img === 'string' ? listing.img : listing.img.url)) || '' %>"
           >
-          <div class="invalid-feedback">Please enter a valid link.</div><br><br>
+          <div class="invalid-feedback">Please enter a valid file.</div><br><br>
         </div>
 
         <div class="mb-3">

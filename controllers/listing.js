@@ -10,7 +10,10 @@ module.exports.createNewListing=async (req,res)=>{
          newListing.owner = req.user._id;
       }
       if(req.file){
-         newListing.img = req.file.path;
+         newListing.img = {
+            url: req.file.path,
+            fileName: req.file.filename
+         };
       }
       await newListing.save();
     req.flash("success","New listing is created");
@@ -31,13 +34,19 @@ module.exports.createNewListing=async (req,res)=>{
  module.exports.editListing=async(req,res)=>{
      let {id}=req.params;
      const listing = await Listing.findById(id);
-     res.render("listings/edit",{listing});
+     let original_url = (typeof listing.img === 'string' ? listing.img : listing.img.url);
+     original_url=original_url.replace("/upload","/upload/w_250"); 
+     res.render("listings/edit",{listing,original_url});
   }
   module.exports.editPostreq=async(req,res)=>{
       let {id}=req.params;
+
       let updatedData = {...req.body.listing};
       if(req.file){
-         updatedData.img = req.file.path;
+         updatedData.img = {
+            url: req.file.path,
+            fileName: req.file.filename
+         };
       }
       await Listing.findByIdAndUpdate(id, updatedData);
       req.flash("success","New listing is updated");

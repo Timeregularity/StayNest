@@ -1,277 +1,384 @@
 const sampleListings = [
 
+ 
     {
-      title: "Green Valley Mountain Resort",
-      description: "Luxury mountain resort surrounded by lush green hills.",
-      img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&h=700&fit=crop",
-      price: 7200,
-      location: "Manali, Himachal Pradesh",
-      country: "India",
+      title: "Cozy Beachfront Cottage",
+      description:
+        "Escape to this charming beachfront cottage for a relaxing getaway. Enjoy stunning ocean views and easy access to the beach.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1500,
+      location: "Malibu",
+      country: "United States",
+      owner: "699aecba92e5ab250ca5044f"
+    },
+    {
+      title: "Modern Loft in Downtown",
+      description:
+        "Stay in the heart of the city in this stylish loft apartment. Perfect for urban explorers!",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1200,
+      location: "New York City",
+      country: "United States",
+      owner: "699b00ec7738da28bd765e6a"
+    },
+    {
+      title: "Mountain Retreat",
+      description:
+        "Unplug and unwind in this peaceful mountain cabin. Surrounded by nature, it's a perfect place to recharge.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1000,
+      location: "Aspen",
+      country: "United States",
+      owner: "699b01067738da28bd765e6f"
+    },
+    {
+      title: "Historic Villa in Tuscany",
+      description:
+        "Experience the charm of Tuscany in this beautifully restored villa. Explore the rolling hills and vineyards.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWxzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 2500,
+      location: "Florence",
+      country: "Italy",
+      owner: "699b01fcdc24059617733c77"
+    },
+    {
+      title: "Secluded Treehouse Getaway",
+      description:
+        "Live among the treetops in this unique treehouse retreat. A true nature lover's paradise.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 800,
+      location: "Portland",
+      country: "United States",
+      owner: "699dbd5b1c9d6e4ba2129cd0"
+    },
+    {
+      title: "Beachfront Paradise",
+      description:
+        "Step out of your door onto the sandy beach. This beachfront condo offers the ultimate relaxation.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 2000,
+      location: "Cancun",
+      country: "Mexico",
       owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Rainforest Eco Hotel",
-      description: "Modern eco hotel surrounded by dense rainforest.",
-      img: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1000&h=700&fit=crop",
-      price: 6800,
-      location: "Wayanad, Kerala",
-      country: "India",
+      title: "Rustic Cabin by the Lake",
+      description:
+        "Spend your days fishing and kayaking on the serene lake. This cozy cabin is perfect for outdoor enthusiasts.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1vdW50YWlufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 900,
+      location: "Lake Tahoe",
+      country: "United States",
+      owner: "699aecba92e5ab250ca5044f"
+    },
+    {
+      title: "Luxury Penthouse with City Views",
+      description:
+        "Indulge in luxury living with panoramic city views from this stunning penthouse apartment.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1622396481328-9b1b78cdd9fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 3500,
+      location: "Los Angeles",
+      country: "United States",
+      owner: "699b00ec7738da28bd765e6a"
+    },
+    {
+      title: "Ski-In/Ski-Out Chalet",
+      description:
+        "Hit the slopes right from your doorstep in this ski-in/ski-out chalet in the Swiss Alps.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1502784444187-359ac186c5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 3000,
+      location: "Verbier",
+      country: "Switzerland",
+      owner: "699b01067738da28bd765e6f"
+    },
+    {
+      title: "Safari Lodge in the Serengeti",
+      description:
+        "Experience the thrill of the wild in a comfortable safari lodge. Witness the Great Migration up close.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fG1vdW50YWlufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 4000,
+      location: "Serengeti National Park",
+      country: "Tanzania",
+      owner: "699b01fcdc24059617733c77"
+    },
+    {
+      title: "Historic Canal House",
+      description:
+        "Stay in a piece of history in this beautifully preserved canal house in Amsterdam's iconic district.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtcGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1800,
+      location: "Amsterdam",
+      country: "Netherlands",
+      owner: "699dbd5b1c9d6e4ba2129cd0"
+    },
+    {
+      title: "Private Island Retreat",
+      description:
+        "Have an entire island to yourself for a truly exclusive and unforgettable vacation experience.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1618140052121-39fc6db33972?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bG9kZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 10000,
+      location: "Fiji",
+      country: "Fiji",
       owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Hilltop Forest Resort",
-      description: "Premium hilltop resort with forest valley views.",
-      img: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1000&h=700&fit=crop",
-      price: 7500,
-      location: "Coorg, Karnataka",
-      country: "India",
+      title: "Charming Cottage in the Cotswolds",
+      description:
+        "Escape to the picturesque Cotswolds in this quaint and charming cottage with a thatched roof.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1602088113235-229c19758e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVhY2glMjB2YWNhdGlvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1200,
+      location: "Cotswolds",
+      country: "United Kingdom",
+      owner: "699aecba92e5ab250ca5044f"
+    },
+    {
+      title: "Historic Brownstone in Boston",
+      description:
+        "Step back in time in this elegant historic brownstone located in the heart of Boston.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1533619239233-6280475a633a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 2200,
+      location: "Boston",
+      country: "United States",
+      owner: "699b00ec7738da28bd765e6a"
+    },
+    {
+      title: "Beachfront Bungalow in Bali",
+      description:
+        "Relax on the sandy shores of Bali in this beautiful beachfront bungalow with a private pool.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1602391833977-358a52198938?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1800,
+      location: "Bali",
+      country: "Indonesia",
+      owner: "699b01067738da28bd765e6f"
+    },
+    {
+      title: "Mountain View Cabin in Banff",
+      description:
+        "Enjoy breathtaking mountain views from this cozy cabin in the Canadian Rockies.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1521401830884-6c03c1c87ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1500,
+      location: "Banff",
+      country: "Canada",
+      owner: "699b01fcdc24059617733c77"
+    },
+    {
+      title: "Art Deco Apartment in Miami",
+      description:
+        "Step into the glamour of the 1920s in this stylish Art Deco apartment in South Beach.",
+      img: {
+        filename: "listingimage",
+        url: "https://plus.unsplash.com/premium_photo-1670963964797-942df1804579?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1600,
+      location: "Miami",
+      country: "United States",
+      owner: "699dbd5b1c9d6e4ba2129cd0"
+    },
+    {
+      title: "Tropical Villa in Phuket",
+      description:
+        "Escape to a tropical paradise in this luxurious villa with a private infinity pool in Phuket.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1470165301023-58dab8118cc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 3000,
+      location: "Phuket",
+      country: "Thailand",
       owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Lakeview Green Resort",
-      description: "Resort facing a scenic lake with mountain backdrop.",
-      img: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1000&h=700&fit=crop",
-      price: 8100,
-      location: "Nainital, Uttarakhand",
-      country: "India",
+      title: "Historic Castle in Scotland",
+      description:
+        "Live like royalty in this historic castle in the Scottish Highlands. Explore the rugged beauty of the area.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1585543805890-6051f7829f98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJlYWNoJTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 4000,
+      location: "Scottish Highlands",
+      country: "United Kingdom",
+      owner: "699aecba92e5ab250ca5044f"
+    },
+    {
+      title: "Desert Oasis in Dubai",
+      description:
+        "Experience luxury in the middle of the desert in this opulent oasis in Dubai with a private pool.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 5000,
+      location: "Dubai",
+      country: "United Arab Emirates",
+      owner: "699b00ec7738da28bd765e6a"
+    },
+    {
+      title: "Rustic Log Cabin in Montana",
+      description:
+        "Unplug and unwind in this cozy log cabin surrounded by the natural beauty of Montana.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1100,
+      location: "Montana",
+      country: "United States",
+      owner: "699b01067738da28bd765e6f"
+    },
+    {
+      title: "Beachfront Villa in Greece",
+      description:
+        "Enjoy the crystal-clear waters of the Mediterranean in this beautiful beachfront villa on a Greek island.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dmlsbGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 2500,
+      location: "Mykonos",
+      country: "Greece",
+      owner: "699b01fcdc24059617733c77"
+    },
+    {
+      title: "Eco-Friendly Treehouse Retreat",
+      description:
+        "Stay in an eco-friendly treehouse nestled in the forest. It's the perfect escape for nature lovers.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1488462237308-ecaa28b729d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2t5JTIwdmFjYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 750,
+      location: "Costa Rica",
+      country: "Costa Rica",
+      owner: "699dbd5b1c9d6e4ba2129cd0"
+    },
+    {
+      title: "Historic Cottage in Charleston",
+      description:
+        "Experience the charm of historic Charleston in this beautifully restored cottage with a private garden.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxvZGdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1600,
+      location: "Charleston",
+      country: "United States",
       owner: "699dbdec0d8fb75d1a4547f6"
     },
     {
-      title: "Emerald Hills Luxury Hotel",
-      description: "Elegant hotel nestled in lush green hills.",
-      img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&h=700&fit=crop",
-      price: 6900,
-      location: "Ooty, Tamil Nadu",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
+      title: "Modern Apartment in Tokyo",
+      description:
+        "Explore the vibrant city of Tokyo from this modern and centrally located apartment.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1480796927426-f609979314bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 2000,
+      location: "Tokyo",
+      country: "Japan",
+      owner: "699aecba92e5ab250ca5044f"
+    },
+    {
+      title: "Lakefront Cabin in New Hampshire",
+      description:
+        "Spend your days by the lake in this cozy cabin in the scenic White Mountains of New Hampshire.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1578645510447-e20b4311e3ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fGNhbXBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1200,
+      location: "New Hampshire",
+      country: "United States",
+      owner: "699b00ec7738da28bd765e6a"
+    },
+    {
+      title: "Luxury Villa in the Maldives",
+      description:
+        "Indulge in luxury in this overwater villa in the Maldives with stunning views of the Indian Ocean.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 6000,
+      location: "Maldives",
+      country: "Maldives",
+      owner: "699b01067738da28bd765e6f"
+    },
+    {
+      title: "Ski Chalet in Aspen",
+      description:
+        "Hit the slopes in style with this luxurious ski chalet in the world-famous Aspen ski resort.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGxha2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 4000,
+      location: "Aspen",
+      country: "United States",
+      owner: "699b01fcdc24059617733c77"
+    },
+    {
+      title: "Secluded Beach House in Costa Rica",
+      description:
+        "Escape to a secluded beach house on the Pacific coast of Costa Rica. Surf, relax, and unwind.",
+      img: {
+        filename: "listingimage",
+        url: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhY2glMjBob3VzZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      },
+      price: 1800,
+      location: "Costa Rica",
+      country: "Costa Rica",
+      owner: "699dbd5b1c9d6e4ba2129cd0"
     },
   
-    {
-      title: "Tea Garden View Resort",
-      description: "Resort overlooking beautiful green tea plantations.",
-      img: "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=1000&h=700&fit=crop",
-      price: 7300,
-      location: "Munnar, Kerala",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Jungle Retreat Hotel",
-      description: "Hotel surrounded by tropical jungle greenery.",
-      img: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1000&h=700&fit=crop",
-      price: 6600,
-      location: "Jim Corbett, Uttarakhand",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Valley Breeze Nature Resort",
-      description: "Scenic valley resort with panoramic green views.",
-      img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&h=700&fit=crop",
-      price: 7800,
-      location: "Shillong, Meghalaya",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Green Canopy Boutique Hotel",
-      description: "Boutique hotel surrounded by tall trees and gardens.",
-      img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1000&h=700&fit=crop",
-      price: 6400,
-      location: "Chikmagalur, Karnataka",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Misty Hillside Resort",
-      description: "Luxury hillside hotel covered in green misty mountains.",
-      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&h=700&fit=crop",
-      price: 8200,
-      location: "Darjeeling, West Bengal",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    }
-    ,
-    {
-      title: "Forest Valley Luxury Resort",
-      description: "Luxury resort surrounded by dense forest and valley views.",
-      img: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=1000&h=700&fit=crop",
-      price: 7600,
-      location: "Kabini, Karnataka",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Green Horizon Mountain Hotel",
-      description: "Mountain-facing hotel with lush green landscapes.",
-      img: "https://images.unsplash.com/photo-1576675784201-0e142b423952?w=1000&h=700&fit=crop",
-      price: 7100,
-      location: "Dharamshala, Himachal Pradesh",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Riverside Forest Resort",
-      description: "Hotel located beside a flowing river and forest.",
-      img: "https://images.unsplash.com/photo-1601918774946-25832a4be0d6?w=1000&h=700&fit=crop",
-      price: 6900,
-      location: "Rishikesh, Uttarakhand",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Hillcrest Green Stay",
-      description: "Comfortable stay on green hilltops with scenic views.",
-      img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=1000&h=700&fit=crop",
-      price: 6200,
-      location: "Kodaikanal, Tamil Nadu",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Nature Crown Boutique Resort",
-      description: "Elegant boutique resort surrounded by tropical greenery.",
-      img: "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?w=1000&h=700&fit=crop",
-      price: 8300,
-      location: "Goa, India",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Evergreen Hills Hotel",
-      description: "Hotel overlooking evergreen hills and valleys.",
-      img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&h=700&fit=crop",
-      price: 7400,
-      location: "Gangtok, Sikkim",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Tea Estate Luxury Resort",
-      description: "Resort surrounded by green tea plantations.",
-      img: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=1000&h=700&fit=crop",
-      price: 7900,
-      location: "Munnar, Kerala",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Woodland Escape Hotel",
-      description: "Peaceful woodland hotel with scenic nature views.",
-      img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&h=700&fit=crop",
-      price: 6500,
-      location: "Pachmarhi, Madhya Pradesh",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Valley Greens Premium Resort",
-      description: "Premium valley-facing resort surrounded by greenery.",
-      img: "https://images.unsplash.com/photo-1571508601891-ca5e7a713859?w=1000&h=700&fit=crop",
-      price: 8600,
-      location: "Shillong, Meghalaya",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Mountain Serenity Lodge",
-      description: "Green mountain lodge with peaceful atmosphere.",
-      img: "https://images.unsplash.com/photo-1584132915807-fd1f5fbc078f?w=1000&h=700&fit=crop",
-      price: 7200,
-      location: "Tirthan Valley, Himachal Pradesh",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Green Cliffside Resort",
-      description: "Cliffside hotel with panoramic green valley views.",
-      img: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1000&h=700&fit=crop",
-      price: 8800,
-      location: "Lonavala, Maharashtra",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Jungle View Luxury Hotel",
-      description: "Hotel with balconies overlooking jungle landscapes.",
-      img: "https://images.unsplash.com/photo-1586611292717-f828b167408c?w=1000&h=700&fit=crop",
-      price: 7600,
-      location: "Bandipur, Karnataka",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "River Mist Nature Resort",
-      description: "Riverside resort surrounded by green hills.",
-      img: "https://images.unsplash.com/photo-1586375300773-8384e3e4916f?w=1000&h=700&fit=crop",
-      price: 6900,
-      location: "Almora, Uttarakhand",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Green Terrace Hill Hotel",
-      description: "Terrace hotel with green mountain backdrops.",
-      img: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&h=700&fit=crop",
-      price: 7100,
-      location: "Mussoorie, Uttarakhand",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Nature Bliss Hillside Resort",
-      description: "Hillside resort surrounded by greenery and mist.",
-      img: "https://images.unsplash.com/photo-1582719478173-1a9f6b2b1b96?w=1000&h=700&fit=crop",
-      price: 8400,
-      location: "Saputara, Gujarat",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Green Meadow Boutique Hotel",
-      description: "Boutique hotel located in lush green meadows.",
-      img: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&h=700&fit=crop",
-      price: 6500,
-      location: "Auli, Uttarakhand",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Mountain Breeze Eco Resort",
-      description: "Eco-friendly resort surrounded by green mountains.",
-      img: "https://images.unsplash.com/photo-1584132915807-fd1f5fbc078f?w=1000&h=700&fit=crop",
-      price: 7300,
-      location: "Kasauli, Himachal Pradesh",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Forest Ridge Premium Stay",
-      description: "Premium forest stay with scenic nature views.",
-      img: "https://images.unsplash.com/photo-1583037189850-1921ae7c6c22?w=1000&h=700&fit=crop",
-      price: 8100,
-      location: "Chikmagalur, Karnataka",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Green Haven Valley Resort",
-      description: "Valley-facing resort surrounded by lush greenery.",
-      img: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1000&h=700&fit=crop",
-      price: 7800,
-      location: "Valparai, Tamil Nadu",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    },
-    {
-      title: "Woodland Panorama Hotel",
-      description: "Hotel offering panoramic forest and hill views.",
-      img: "https://images.unsplash.com/photo-1586611292717-f828b167408c?w=1000&h=700&fit=crop",
-      price: 7200,
-      location: "Dandeli, Karnataka",
-      country: "India",
-      owner: "699dbdec0d8fb75d1a4547f6"
-    }
   ];
   
   

@@ -7,8 +7,11 @@ const ExpressError = require("../utils/expressErrors.js");
 const flash=require("connect-flash");
 const {isLoggedIn,isOwner,validateSchema}=require("../middlewares.js");
 const listingControllers=require("../controllers/listing.js");
-const multer=require("multer");
-const upload=multer({dest:"uploads/"});
+// pull just the storage object from cloud configuration
+const { storage } = require("../cloudConfig.js");
+const multer = require("multer");
+// multer expects an options object with a `storage` property
+const upload = multer({ storage });
 
 
 

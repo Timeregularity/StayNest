@@ -1,5 +1,6 @@
 const express=require("express");
 const app=express();
+require("dotenv").config();
 const mongoose= require("mongoose");
 const Listing=require("./DBModels/listing.js");
 const path=require("path");
@@ -15,6 +16,9 @@ const flash=require("connect-flash");
 const LocalStrategy=require("passport-local");
 const User=require("./DBModels/user.js");
 const passport=require("passport");
+
+
+
 
 
 app.set("view engine", "ejs");
@@ -101,8 +105,10 @@ app.use((req,res,next)=>{
 });
 
 app.use((err,req,res,next)=>{
+  // log full error for diagnostics
+  console.error(err);
+  console.error(err.stack);
   let { statusCode = 500, message = "Something went wrong" } = err;
-  
   res.status(statusCode).render("listings/error.ejs",{message});
 });
 
