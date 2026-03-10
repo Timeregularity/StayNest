@@ -16,7 +16,7 @@
 .nav-link{
     color: rgb(0, 0, 0) ;
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
 }
 .fa-brands{
     color: black;
@@ -41,7 +41,7 @@ a{
 .cards-hotels{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 5rem;
+    margin-top: 2rem;
     
 }
 .cards-hotels img{
@@ -110,3 +110,17 @@ color: white;
      font-weight: 500;
      font-size: 1.25rem;
  }
+.filters
+{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    
+}
+.filter{
+    opacity: 0.5;
+}
+.filter:hover
+{
+    opacity: 1;
+}

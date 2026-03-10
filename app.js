@@ -12,6 +12,7 @@ const reviewRouter=require("./routes/reviews.js");
 const userRouter=require("./routes/user.js");
 const methodOverride=require("method-override");
 const session=require("express-session");
+const MongoStore = require('connect-mongo');
 const flash=require("connect-flash");
 const LocalStrategy=require("passport-local");
 const User=require("./DBModels/user.js");
@@ -29,15 +30,25 @@ app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 
 
-const Mongo_URL="mongodb://127.0.0.1:27017/Nivasa";
+const Mongo_URL=process.env.ATLASDB_URL;
 async function main() {
   await mongoose.connect(Mongo_URL);
   console.log("Database Connected");
   }
   main();
-
+  const store=MongoStore.create({
+    mongoUrl: Mongo_URL,
+    
+    touchAfter:24*60*60,
+    // See below for details
+  });
+  store.on("error",(err)=>
+  {
+    console.log("Error on Mongo session store",err);
+  });
   const sessionOptions={
-    secret:"23B0101088",
+    store,
+    secret:process.env.SESSION_SECRET,
     resave:false,
     saveUninitialized:true,
     cookie:{
@@ -47,6 +58,7 @@ async function main() {
     }
   };
 
+   
   app.use(session(sessionOptions));
   app.use(flash());
 

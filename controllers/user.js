@@ -1,8 +1,9 @@
+const User=require("../DBModels/user");
 module.exports.renderSignUp=(req,res)=>
     {
         res.render("users/signUp.ejs");
     };
-module.exports.Login=async (req,res)=>
+module.exports.Login=async (req,res,next)=>
 {try{
     let {username,password,email}=req.body;
     const newUser=new User({username,email});
@@ -36,7 +37,7 @@ module.exports.redirectURL=(req, res) => {
   
         res.redirect(redirectURL);
     }
-module.exports.logOut=(req,res)=>
+module.exports.logOut=(req,res,next)=>
     {
       req.logOut((err)=>
       {
@@ -48,10 +49,12 @@ module.exports.logOut=(req,res)=>
        res.redirect("/listings");
       });
     }
-    module.exports.renderprofile=(req,res)=>
-    {
-    if(isLoggedIn)
-    {
-      res.render("users/profile.ejs");
-    }
-    }
+    module.exports.renderprofile = (req,res) =>
+        {
+          if(!req.user){
+            req.flash("error","You must login first!");
+            return res.redirect("/login");
+          }
+        
+          res.render("users/profile.ejs");
+        };

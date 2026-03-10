@@ -1,6 +1,38 @@
 <% layout("layouts/boilerplate") %>
 <body>
-  
+<div class="filters mt-2">
+  <div class="filter">
+   <a href="/listings/category/Trending"><i class="fa-solid fa-fire "></i> <br>
+    Trending</a>
+  </div>
+  <div class="filter">
+    <a href="/listings/category/Hills"><i class="fa-solid fa-mountain "></i><br>
+      Hills</a>
+  </div>
+  <div class="filter">
+    <a href="/listings/category/Snow"><i class="fa-solid fa-snowflake "></i><br>
+      Snow</a>
+  </div>
+  <div class="filter">
+    <a href="/listings/category/Iconic Cities"><i class="fa-solid fa-mountain-city "></i><br>
+      Iconic Cities</a>
+  </div>
+  <div class="filter">
+    <a href="/listings/category/Rooms"><i class="fa-solid fa-bed "></i><br>
+      Rooms</a>
+  </div>
+  <div class="filter">
+   <a href="/listings/category/Coastal"><i class="fa-solid fa-umbrella-beach "></i><br>
+    Coastal</a>
+  </div>
+  <div class="filter">
+   <a href="#"> <i class="fa-solid fa-earth-asia "></i><br>
+    Abroad</a>
+  </div>
+ <div class="filter"><a href="/listings/category/Camping">
+  <i class="fa-solid fa-campground "></i><br>Camping
+ </a></div>
+</div> 
 <div class="cards-hotels">
     <% let i=0;%>
  <% for(let list of allListing){ %>

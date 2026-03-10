@@ -61,3 +61,22 @@ module.exports.createNewListing=async (req,res)=>{
     module.exports.renderNewListing=(req,res)=>{
     res.render("listings/new");
  };
+ module.exports.filterByCategory = async (req, res) => {
+   let { category } = req.params;
+
+   const listings = await Listing.find({ category });
+
+   res.render("listings/index", { allListing: listings });
+};
+module.exports.searchByCountry = async (req, res) => {
+   const { country } = req.query;
+
+   const listings = await Listing.find({
+      $or: [
+         { country: { $regex: country, $options: "i" } },
+         { location: { $regex: country, $options: "i" } }
+      ]
+   });
+
+   res.render("listings/index", { allListing: listings });
+};

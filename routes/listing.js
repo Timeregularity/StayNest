@@ -16,19 +16,40 @@ const upload = multer({ storage });
 
 
 
-//Listing Route
-
 router.get("/", wrapAsync(listingControllers.index));
-router.get("/new",isLoggedIn,listingControllers.renderNewListing);
- //create route
- router.post("/",upload.single('listing[img]'),isLoggedIn,validateSchema, wrapAsync(listingControllers.createNewListing));
- //show route
- router.get("/:id", wrapAsync(listingControllers.showListing));
- //edit route
- router.get("/:id/edit",isLoggedIn, wrapAsync(listingControllers.editListing));
- //edit route
- router.put("/:id",isLoggedIn,isOwner,upload.single('listing[img]'), validateSchema, wrapAsync(listingControllers.editPostreq));
- //delete route
- router.delete("/:id",isLoggedIn,isOwner, wrapAsync(listingControllers.deleteListing));
- 
+
+router.get("/new", isLoggedIn, listingControllers.renderNewListing);
+
+// search route
+router.get("/search", listingControllers.searchByCountry);
+
+// category filter
+router.get("/category/:category", listingControllers.filterByCategory);
+
+// create route
+router.post(
+  "/",
+  upload.single("listing[img]"),
+  isLoggedIn,
+  validateSchema,
+  wrapAsync(listingControllers.createNewListing)
+);
+
+// show route
+router.get("/:id", wrapAsync(listingControllers.showListing));
+
+// edit route
+router.get("/:id/edit", isLoggedIn, wrapAsync(listingControllers.editListing));
+
+router.put(
+  "/:id",
+  isLoggedIn,
+  isOwner,
+  upload.single("listing[img]"),
+  validateSchema,
+  wrapAsync(listingControllers.editPostreq)
+);
+
+// delete
+router.delete("/:id", isLoggedIn, isOwner, wrapAsync(listingControllers.deleteListing));
 module.exports=router;
