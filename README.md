@@ -131,7 +131,7 @@ Other Tools:
 
 Clone the repository
 
-git clone https://github.com/yourusername/staynest.git
+git clone https://github.com/yourusername/StayNest.git
 
 Go to project directory
 
