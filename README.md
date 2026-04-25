@@ -1,6 +1,6 @@
-# 🏠 StayNest – Airbnb Inspired Property Listing Platform
+# 🏠 StayNest – Property Listing Platform
 
-StayNest is a full-stack web application inspired by Airbnb that allows users to explore, create, and manage rental property listings.
+StayNest is a full-stack web application that allows users to explore, create, and manage rental property listings.
 
 The platform enables users to sign up, log in, create property listings, upload images, categorize listings, leave reviews with ratings, and view the average rating of each property.
 
